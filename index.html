@@ -5,15 +5,327 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes">
 	<link rel="icon" href="logo.png">
+	<script src="assets/html2canvas.js"></script>
 
 	<style>
+
+		/*colors
+		blue - rgb(50, 111, 200);
+		yellow - rgb(254, 242, 75);
+		red - rgb(201, 65, 56);
+		red - rgb(146, 208, 80);*/
+		@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Jua|Roboto');
 		
+		body{
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+			margin: 0px;
+		}
+
+		main {
+		    width: 100%;
+		    max-width: 100%;
+		}
+
+		div#form-container {
+		    display: flex;
+		    flex-wrap: wrap;
+		    padding: 20px 10px;
+		    margin: 50px auto;
+		}
+
+		form#form-pledge {
+		    width: calc(100% - 20px);
+		    display: flex;
+		    flex-wrap: wrap;
+		    margin: auto;
+		}
+
+		.fields {
+		    display: flex;
+		    flex-wrap: wrap;
+		    width: 100%;
+		    max-width: 100%;
+		    margin: 10px auto;
+		}
+
+		input, select {
+		    width: 100%;
+		}
+
+		label {
+		    margin: 5px;
+		    color: #326FC8;
+		}
+
+		div#frame{
+			margin: auto;
+			width: 960px;
+			height: 540px;
+			background-color: rgb(254, 242, 75);
+			display: none;
+			/*display: grid;*/
+			grid-template-rows: 10px 380px 100px 50px;
+			grid-template-columns: 300px 660px;
+		}
+
+		div#banner-header, div#banner-footer{
+			background-color: rgb(50, 111, 200);
+			grid-column: 1/3;
+		}
+
+		div#banner-header{
+			width: 100%;
+			height: 10px;
+			grid-row-end: 2;
+		}
+
+		div#banner-footer{
+			width: 100%;
+			height: 50px;
+			grid-row-end: 5;
+		}
+
+		img#banner-logo{
+			width: 100px;
+			height: 100px;
+			grid-row-end: 4;
+			grid-column-end: 3;
+			margin-left: auto;
+			margin-right: 20px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+
+		img#banner-person-image{
+			width: 250px;
+		    height: 250px;
+		    grid-row-end: 3;
+		    grid-column-end: 2;
+		    background: #fff;
+		    margin: auto;
+		    /*padding: 5px;*/
+		    border: 10px solid rgb(50, 111, 200);
+		    border-radius: 50%;
+		    box-sizing: border-box;	
+		}
+
+		div#hashTag-container{
+			grid-column: 1/3;
+			margin-top: auto;
+			grid-row-end: 4;
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		p#hashTag{
+			font-family: 'Jua', sans-serif;
+			margin: 0px auto;
+			color: rgb(50, 111, 200);
+			text-align: center;
+			font-size: 24px;
+		    border: 1px solid rgb(50, 111, 200);
+    		padding: 5px 15px;
+    	}
+		
+		div.banner-pledge-container{
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+    	p.banner-pledge {
+		    font-family: 'IBM Plex Mono', monospace;
+		    font-size: 35px;
+		    margin: auto;
+		    line-height: 1.2em;
+		    text-align: center;
+		    padding: 2px 10px;
+		}
+
+		span#banner-person-name{
+			text-transform: capitalize;
+		}
+
+		span#banner-person-mainCause{
+			
+		}
+
+		span#banner-person-name, span#banner-pledge-mainCause{
+			font-weight: bold;
+			color: rgb(50, 111, 200);
+		}
+
+		#download-btn{
+	        padding:10px 20px;
+	        font-size:20px;
+	        margin:20px auto;
+			background-color: rgb(50, 111, 200);
+			color: rgb(254, 242, 75);
+			border: 0px;
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			border: 0;
+			border-radius: 20px;
+	    }
+
+	    img#preview{
+	    	width: 150px;
+	    	display: none;
+	    	height: 150px;
+	    	margin: auto;
+	    }
+
+	    header{
+	    	width: 100%;
+		    display: flex;
+		    flex-wrap: wrap;
+		    background: #FFFFFF;
+		    /* box-shadow: 0px 4px 4px rgba(50, 111, 200,0.4); */
+		    height: 100px;
+		    /* border-bottom: 3px solid #326FC8; */
+		    box-sizing: border-box;
+		    z-index: 1;
+		    background: #326FC8;
+
+	    }
+
+	    img#logo{
+	    	height: 75px;
+	    	width: 75px;
+	    	margin: auto;
+	    }
 	</style>
 </head>
 <body>
-	
+	<header>
+		<img id="logo" src="logo.png" alt="Naija Health Proactivist, a society of ">
+	</header>
+	<main>
+		<div id="form-container">
+			<form id="form-pledge">
+				<div class="fields">
+					<label for="your-name">Your Name</label>
+					<input type="text" id="your-name" name="your-name" maxlength="30" required>
+				</div>
+				<div class="fields">
+					<label for="your-pledge">Your Pledge</label>
+					<select name="your-pledge" id="your-pledge" class="currency" required>
+						<option selected disabled>Choose Option</option>
+						<option value="NHIS Coverage">fight for better NHIS Coverage</span></option>
+						<option value="PHC system revamped">want our PHC system revamped</option>
+						<option value="Community based Insurance scheme">suggest we should adopt Community based Insurance scheme</option>
+						<option value="Insurance Cover">will register for Insurance Cover</option>
+						<option value="Seeking Medical Care">will be proactive about Seeking Medical Care</option>
+					</select>
+				</div>
+				<div class="fields">
+					<label for="your-img">Your Picture</label>
+					<input type="file" onchange="previewFile()" id="your-img" name="your-img" accept="image/*">
+				</div>
+				<div class="fields">
+					<img id="preview" src="" alt="">
+				</div>
+		        <button id="download-btn">Download Pledge</button>
+			</form>
+		</div>
+		<div id="frame">
+			<div id="banner-header"></div>
+			<div id="banner-footer"></div>
+			<img src="myAvatar.png" alt="" id="banner-person-image">
+			<div class="banner-pledge-container">
+				<p class="banner-pledge">
+					I, <span id="banner-person-name">Ebere Uzodufa</span><br>
+					<span id="banner-pledge-cause">fight for better</span><br>
+					<span id="banner-pledge-mainCause">NHIS Coverage</span>
+				</p>
+			</div>
+			
+			<img src="logo.png" alt="Naija Health Proactivist, a society of " id="banner-logo">
+			<div id="hashTag-container">
+				<p id="hashTag">#10daysofActivismforUHCinNigeria</p>
+			</div>
+		</div>
+	</main>
 	<script>
-		
+		const btn = document.getElementById("download-btn");
+		const preview = document.getElementById("preview");
+		const inputName = document.getElementById("your-name");
+		const inputPledge = document.getElementById("your-pledge");
+		let name;
+		let mainCause;
+		let cause;
+		// console.log('name', name);
+		let timeoutID;
+		let imgSrc;
+		const imageContainer = document.getElementById("frame"); // full page 
+		const txtName = document.getElementById("banner-person-name");
+		const txtCause = document.getElementById("banner-pledge-cause");
+		const txtMainCourse = document.getElementById("banner-pledge-mainCause");
+		const imgPerson = document.getElementById("banner-person-image");
+		const selectEle = document.getElementById("your-pledge");
+
+		function previewFile(){
+
+	       var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+	       var reader  = new FileReader();
+
+	       if (file) {
+	           reader.readAsDataURL(file); //reads the data as a URL
+	           reader.onloadend = function () {
+	           		preview.src = reader.result;
+		    		preview.style.display = 'block';
+	           	    imgSrc = reader.result; //Assign image
+	       	   }
+	       }
+	  	}
+
+		const hideback = () =>{
+		    imageContainer.style.display = 'none';
+		}
+
+		const genePledge = () =>{
+			name = name.replace(/ +/g, "");
+			imageContainer.style.display = 'grid';
+
+		    imgPerson.src = imgSrc;
+		    txtName.innerHTML = name;
+		    txtCause.innerHTML = cause;
+		    txtMainCourse.innerHTML = mainCause;
+
+		    // html2canvas(imageContainer,{
+		    //   allowTaint : true
+		    //   // width : 1280,
+		    //   // height : 750
+		    // }).then(function(canvas) {
+		    //  let link = document.createElement("a");
+		    //  document.body.appendChild(link);
+		    //  // link.download = name + '#10daysofActivismforUHCinNigeria.png';
+		    //  link.download = name + '#10daysofActivismforUHCinNigeria.png';
+		    //  link.href = canvas.toDataURL("image/png");
+		    //  link.target = '_blank';
+		    //  link.click();
+		    // });
+		    // setTimeout(hideback, 0);
+		}
+
+		btn.addEventListener("click", function(event){
+
+			event.preventDefault();
+
+			if (inputName == "" || inputPledge == "" || preview == "" ) {
+				alert('Fill out all the fields');
+			} else{
+				name = document.getElementById("your-name").value;
+				mainCause = selectEle.options[selectEle.options.selectedIndex].value;
+				cause = selectEle.options[selectEle.options.selectedIndex].innerHTML;
+				const wordLength = (cause.length - mainCause.length) - 1;
+				cause = cause.slice(0, wordLength);
+
+				genePledge();
+			}
+		    
+		});
 	</script>
 </body>
 </html>
