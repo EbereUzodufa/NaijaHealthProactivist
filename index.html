@@ -317,20 +317,20 @@
 		    txtCause.innerHTML = cause;
 		    txtMainCourse.innerHTML = mainCause;
 
-		    // html2canvas(imageContainer,{
-		    //   allowTaint : true
-		    //   // width : 1280,
-		    //   // height : 750
-		    // }).then(function(canvas) {
-		    //  let link = document.createElement("a");
-		    //  document.body.appendChild(link);
-		    //  // link.download = name + '#10daysofActivismforUHCinNigeria.png';
-		    //  link.download = name + '#10daysofActivismforUHCinNigeria.png';
-		    //  link.href = canvas.toDataURL("image/png");
-		    //  link.target = '_blank';
-		    //  link.click();
-		    // });
-		    // setTimeout(hideback, 0);
+		    html2canvas(imageContainer,{
+		      allowTaint : true
+		      // width : 1280,
+		      // height : 750
+		    }).then(function(canvas) {
+		     let link = document.createElement("a");
+		     document.body.appendChild(link);
+		     // link.download = name + '#10daysofActivismforUHCinNigeria.png';
+		     link.download = name + '#10daysofActivismforUHCinNigeria.png';
+		     link.href = canvas.toDataURL("image/png");
+		     link.target = '_blank';
+		     link.click();
+		    });
+		    setTimeout(hideback, 0);
 		}
 
 		btn.addEventListener("click", function(event){
