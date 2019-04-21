@@ -80,7 +80,7 @@
 			display: none;
 			/*display: grid;*/
 			grid-template-rows: 10px 380px 100px 50px;
-			grid-template-columns: 300px 660px;
+			grid-template-columns: 320px 640px;
 		}
 
 		div#banner-header, div#banner-footer{
@@ -112,8 +112,8 @@
 		}
 
 		img#banner-person-image{
-			width: 250px;
-		    height: 250px;
+			width: 300px;
+    		height: 300px;
 		    grid-row-end: 3;
 		    grid-column-end: 2;
 		    background: #fff;
@@ -152,9 +152,9 @@
 		    font-family: 'IBM Plex Mono', monospace;
 		    font-size: 35px;
 		    margin: auto;
-		    line-height: 1.2em;
+		    line-height: 1.15em;
 		    text-align: center;
-		    padding: 2px 10px;
+		    /*padding: 2px 10px;*/
 		}
 
 		span#banner-person-name{
@@ -294,6 +294,8 @@
 
 	       var file    = document.querySelector('input[type=file]').files[0]; //sames as here
 	       var reader  = new FileReader();
+	       preview.src = "";
+    	   preview.style.display = 'none';
 
 	       if (file) {
 	           reader.readAsDataURL(file); //reads the data as a URL
@@ -338,7 +340,7 @@
 
 			event.preventDefault();
 
-			if (inputName == "" || inputPledge == "" || preview == "" ) {
+			if (inputName.value == "" || inputPledge.value == "" || inputPledge.value == "Choose Option" || preview == "" ) {
 				alert('Fill out all the fields');
 			} else{
 				name = document.getElementById("your-name").value;
