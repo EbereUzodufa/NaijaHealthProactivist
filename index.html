@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes">
 	<link rel="icon" href="logo.png">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<script src="assets/html2canvas.js"></script>
 
 	<style>
@@ -22,6 +23,7 @@
 			width: 100%;
 			margin: 0px;
 			background: #fff;
+			color: #000;
 		}
 
 		main {
@@ -73,14 +75,17 @@
 		}
 
 		div#frame{
-			margin: auto;
-			width: 960px;
-			height: 540px;
-			background-color: rgb(254, 242, 75);
 			display: none;
 			/*display: grid;*/
-			grid-template-rows: 10px 380px 100px 50px;
-			grid-template-columns: 320px 640px;
+			margin: auto;
+			width: 1527px;
+			height: 752px;
+			background: url(backGround.png);
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+			grid-template-rows: 176px 400px 176px;
+			grid-template-columns: 84px 530px 129px 744px 40px;
 		}
 
 		div#banner-header, div#banner-footer{
@@ -88,73 +93,78 @@
 			grid-column: 1/3;
 		}
 
-		div#banner-header{
-			width: 100%;
-			height: 10px;
-			grid-row-end: 2;
-		}
-
-		div#banner-footer{
-			width: 100%;
-			height: 50px;
-			grid-row-end: 5;
-		}
-
-		img#banner-logo{
-			width: 100px;
-			height: 100px;
-			grid-row-end: 4;
-			grid-column-end: 3;
-			margin-left: auto;
-			margin-right: 20px;
-			margin-top: 0px;
-			margin-bottom: 0px;
+		img#banner-logo {
+		    width: 150px;
+		    height: 150px;
+		    grid-row-end: 4;
+		    grid-column-end: 5;
+		    margin-left: auto;
+		    margin-right: 35px;
+		    margin-top: -75px;
+		    margin-bottom: auto;
 		}
 
 		img#banner-person-image{
-			width: 300px;
-    		height: 300px;
+		    width: 400px;
+		    height: 400px;
 		    grid-row-end: 3;
-		    grid-column-end: 2;
+		    grid-column-end: 3;
 		    background: #fff;
 		    margin: auto;
-		    /*padding: 5px;*/
-		    border: 10px solid rgb(50, 111, 200);
+		    border: 10px solid rgb(254, 242, 75);
 		    border-radius: 50%;
 		    box-sizing: border-box;	
 		}
 
 		div#hashTag-container{
-			grid-column: 1/3;
-			margin-top: auto;
-			grid-row-end: 4;
-			display: flex;
-			flex-wrap: wrap;
+		    grid-column-end: 3;
+		    grid-row-end: 4;
+		    display: flex;
+		    flex-wrap: wrap;
 		}
 
 		p#hashTag{
 			font-family: 'Jua', sans-serif;
-			margin: 0px auto;
-			color: rgb(50, 111, 200);
+			margin: auto;
+			color: rgb(254, 242, 75);
 			text-align: center;
-			font-size: 24px;
-		    border: 1px solid rgb(50, 111, 200);
-    		padding: 5px 15px;
-    	}
+			font-size: 32px;
+		}
 		
 		div.banner-pledge-container{
-			width: 100%;
+			width: 744px;
+			height: 300px;
+		    grid-column-end: 5;
+		    grid-row-end: 3;
 			display: flex;
 			flex-wrap: wrap;
 		}
 
     	p.banner-pledge {
 		    font-family: 'IBM Plex Mono', monospace;
-		    font-size: 35px;
+		    font-size: 40px;
 		    margin: auto;
 		    line-height: 1.15em;
 		    text-align: center;
 		    /*padding: 2px 10px;*/
+		    color: #fff;
+		}
+
+		p.thanks {
+		    font-family: 'IBM Plex Mono', monospace;
+		    font-size: 14px;
+		    width: 100%;
+		    line-height: 2em;
+		    text-align: center;
+		    padding: 5px;
+		    margin: auto;
+		    transition: 0.5s;
+		    color: #000;
+		}
+
+		p.thanks span{
+			font-weight: bold;
+		    color: rgb(50, 111, 200);
 		}
 
 		span#banner-person-name{
@@ -167,7 +177,7 @@
 
 		span#banner-person-name, span#banner-pledge-mainCause{
 			font-weight: bold;
-			color: rgb(50, 111, 200);
+			color: rgb(254, 242, 75);
 		}
 
 		#download-btn{
@@ -209,6 +219,38 @@
 	    	margin: auto;
 	    }
 
+	    .social {
+		    display: flex;
+		    flex-wrap: wrap;
+		    width: 410px;
+		    grid-row-end: 4;
+		    grid-column-end: 5;
+		    padding-bottom: 100px;
+		    margin-top: -50px;
+		    margin-left: 80px;
+		}
+
+	    .social-media {
+		    display: flex;
+		    flex-wrap: wrap;
+		    width: 100%;
+    		margin: 10px 0px;
+		}
+
+	    i.fab.social-media-icon {
+		    font-size: 30px;
+		    /*background: #fff;*/
+		    color: rgb(254, 242, 75);
+		    margin: auto 5px;
+		}
+
+		p.social-media-name {
+		    color: #fff;
+		    font-size: 20px;
+		    font-family: 'Open Sans', sans-serif;
+		    margin: auto 5px;
+		}
+
 	    @media screen and (min-width: 649px) {
 	    	body{
 			    width: 600px;
@@ -219,6 +261,8 @@
 	    		background: rgba(254, 242, 75,0.8);
    	 			height: 100vh;
 	    	}
+
+	    	p.thanks {font-size: 20px;}
 	    }
 	</style>
 </head>
@@ -255,9 +299,9 @@
 			</form>
 		</div>
 		<div id="frame">
-			<div id="banner-header"></div>
-			<div id="banner-footer"></div>
-			<img src="" alt="" id="banner-person-image">
+			<!-- <div id="banner-header"></div> -->
+			<!-- <div id="banner-footer"></div> -->
+			<img src="myAvatar.png" alt="" id="banner-person-image">
 			<div class="banner-pledge-container">
 				<p class="banner-pledge">
 					I, <span id="banner-person-name">Ebere Uzodufa</span><br>
@@ -269,6 +313,20 @@
 			<img src="logo.png" alt="Naija Health Proactivist, a society of " id="banner-logo">
 			<div id="hashTag-container">
 				<p id="hashTag">#10daysofActivismforUHCinNigeria</p>
+			</div>
+			<div class="social">
+				<div class="social-media">
+					<i class="fab fa-facebook social-media-icon"></i>
+					<p class="social-media-name">facebook.com/naijahealthproactivist</p>
+				</div>
+				<div class="social-media">
+					<i class="fab fa-twitter social-media-icon"></i>
+					<p class="social-media-name">naijahealthproactivist</p>
+				</div>
+				<div class="social-media">
+					<i class="fab fa-instagram social-media-icon"></i>
+					<p class="social-media-name">naijahealthproactivist</p>
+				</div>
 			</div>
 		</div>
 	</main>
@@ -309,6 +367,24 @@
 
 		const hideback = () =>{
 		    imageContainer.style.display = 'none';
+		    voteOfThanks();
+		}
+
+		const voteOfThanks = () =>{
+			const main = document.querySelector('main');
+			const form = document.querySelector('div#form-container');
+			const div = document.createElement('div');
+			const p = document.createElement('p');
+
+			form.style.display = "none";
+
+			div.setAttribute('style','width: 100%; display: flex; flex-wrap: wrap; padding: 20px 0px;')
+
+			p.classList.add('thanks');
+			p.innerHTML =`Thank you, <span>${name}</span> for supporting our cause.<br>You can also share the pledge image on social media. Kindly use the hash tag,  <span>#10daysofActivismforUHCinNigeria</span>.`;
+
+			div.append(p);
+			main.append(div);
 		}
 
 		const genePledge = () =>{
