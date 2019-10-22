@@ -11,3 +11,4 @@ The project consists of
 
 >**NB**: Javascript in the index.html is used to control the transfer of data from the form to the pledge image card.
 >This application was made to be responsive and was designed mobile up. Media queries did the magic.
+>[Click here to view](https://naijahealthproactivist.netlify.com/).
